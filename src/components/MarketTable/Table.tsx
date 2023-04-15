@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import MarketTableRow from "./TableRow";
+import MarketTableRow from "@/components/MarketTable/TableRow";
 
 const MarketTable: React.FC = () => {
   return (

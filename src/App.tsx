@@ -1,13 +1,13 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import GlobalStatsList from "./components/GlobalStats/StatsList";
-import MarketTable from "./components/MarketTable/Table";
+import TrendList from "@/components/Trend/TrendList";
+import MarketTable from "@/components/MarketTable/Table";
 
 const App: React.FC = () => {
   return (
     <div className="my-4">
       <Container>
-        <GlobalStatsList />
+        <TrendList />
         <MarketTable />
       </Container>
     </div>
