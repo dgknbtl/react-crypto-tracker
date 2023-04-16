@@ -1,22 +1,29 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { ITrendCardProps } from "@/types";
 
-type StatsCardProps = {
-  item: {
-    name: String;
-    value: String;
-  };
-};
-
-const StatsCard: React.FC<StatsCardProps> = ({ item: { name, value } }) => {
+const TrendCard: React.FC<ITrendCardProps> = ({ item }) => {
   return (
-    <Card>
+    <Card className="trend-card">
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{value}</Card.Text>
+        <div className="d-flex align-items-start">
+          <img src={item.small} alt="" />
+
+          <div className="ms-3">
+            <div className="d-flex align-items-end">
+              <h4 className="mb-0 me-2">{item.name}</h4>
+              <small className="mb-1 text-gray">({item.symbol})</small>
+            </div>
+            <small className="mb-1 text-gray">#{item.market_cap_rank}</small> --
+            <small className="mb-1 text-gray">
+              &#8383;{item.price_btc.toFixed(6)}
+            </small>
+          </div>
+        </div>
+        {/* <span>{item.price_btc}</span> */}
       </Card.Body>
     </Card>
   );
 };
 
-export default StatsCard;
+export default TrendCard;

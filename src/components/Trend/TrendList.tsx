@@ -1,37 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import TrendCard from "@/components/Trend/TrendCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTrendData } from "@/features/trend/TrendSlice";
-import { useEffect } from "react";
+import { ICoin } from "@/types";
+import "./Trend.scss";
 
-const StatsList: React.FC = () => {
+const TrendList: React.FC = () => {
   const dispatch: any = useDispatch();
-  const trendData = useSelector(
-    (state: { trend: { data: any[] } }) => state.trend.data
-  );
 
-  console.log("data", trendData);
+  const { coins } = useSelector(
+    (state: { trend: { data: { coins: any } } }) => state.trend.data
+  );
+  const isLoading = useSelector(
+    (state: { trend: { loading: boolean } }) => state.trend.loading
+  );
+  const error = useSelector(
+    (state: { trend: { error: string | null } }) => state.trend.error
+  );
 
   useEffect(() => {
     dispatch(fetchTrendData());
   }, []);
 
-  const mockData = [
-    { name: "Market Capitalization", value: "$1,317,870,055,259" },
-    { name: "24h Trading Volume", value: "$67,396,456,375" },
-    { name: "Bitcoin Market Cap Dominance", value: "44.48%" },
-  ];
+  if (isLoading) {
+    return <div>Yükleniyor</div>;
+  }
+
+  if (error) {
+    return <div>An Error Occured</div>;
+  }
+
+  if (!coins) {
+    return <div>It is not loaded.</div>;
+  }
 
   return (
     <Row>
-      {mockData.map((item, i) => (
-        <Col lg={4} key={i}>
-          <TrendCard item={item} />
+      {coins.slice(0, 6).map((coin: { item: ICoin }, i: number) => (
+        <Col lg={4} key={i} className="mt-3">
+          <TrendCard item={coin.item} />
         </Col>
       ))}
     </Row>
   );
 };
 
-export default StatsList;
+export default TrendList;

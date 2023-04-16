@@ -3,11 +3,15 @@ import { API_URL } from "@/constants";
 import axios from "axios";
 
 interface IState {
-  data: any[];
+  data: any[] | null;
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: IState = {
   data: [],
+  loading: false,
+  error: null,
 };
 
 // fetch trend market data
@@ -21,9 +25,21 @@ const trendSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchTrendData.fulfilled, (state, action) => {
-      state.data = action.payload;
-    });
+    builder
+      .addCase(fetchTrendData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchTrendData.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(fetchTrendData.rejected, (state, action) => {
+        state.data = null;
+        state.loading = false;
+        state.error = action.error.message || "An error occurred.";
+      });
   },
 });
 
