@@ -21,7 +21,7 @@ const TrendList: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchTrendData());
-  }, []);
+  }, [dispatch]);
 
   if (isLoading) {
     return <div>Yükleniyor</div>;

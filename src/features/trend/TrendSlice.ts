@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_URL } from "@/constants";
 import axios from "axios";
+import { TrendListState } from "./TrendTypes";
 
 interface IState {
-  data: any[] | null;
+  data: TrendListState[] | null;
   loading: boolean;
   error: string | null;
 }
@@ -32,6 +33,8 @@ const trendSlice = createSlice({
       })
       .addCase(fetchTrendData.fulfilled, (state, action) => {
         state.data = action.payload;
+
+        console.log(action.payload);
         state.loading = false;
         state.error = null;
       })
