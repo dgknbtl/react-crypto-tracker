@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { ITrendCardProps } from "@/types";
-import DetailModal from "../Modal/DetailModal";
+import DetailModal from "@/components/Modal/DetailModal";
 
 const TrendCard: React.FC<ITrendCardProps> = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
 
-  function handleShowModal() {
+  const handleShowModal = () => {
     setShowModal(true);
-  }
-
-  function handleCloseModal() {
+  };
+  const handleCloseModal = () => {
     setShowModal(false);
-  }
+  };
 
   return (
     <>
@@ -40,9 +39,11 @@ const TrendCard: React.FC<ITrendCardProps> = ({ item }) => {
         </Card.Body>
       </Card>
 
-      <DetailModal show={showModal} onHide={handleCloseModal}>
-        <h1>{item.name}</h1>
-      </DetailModal>
+      <DetailModal
+        show={showModal}
+        onHide={handleCloseModal}
+        coinId={item?.id}
+      />
     </>
   );
 };

@@ -58,5 +58,5 @@ export interface IMarketRowProps {
 export interface IDetailModalProps {
   show: boolean;
   onHide: () => void;
-  children: React.ReactNode;
+  coinId: string;
 }
