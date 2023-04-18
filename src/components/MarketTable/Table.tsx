@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Table, InputGroup, Form } from "react-bootstrap";
 import MarketTableRow from "@/components/MarketTable/TableRow";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMarketData } from "@/features/Market/MarketSlice";
 import { IMarketState, IMarketCoin } from "@/types";
 import { Spinner, Alert } from "react-bootstrap";
+import "./MarketTable.scss";
 
 const MarketTable: React.FC = () => {
   const dispatch: any = useDispatch();
@@ -44,18 +45,22 @@ const MarketTable: React.FC = () => {
   }
 
   return (
-    <div>
-      <Table striped hover responsive className="my-4">
+    <div className="section-gap">
+      <div className="section-head">
+        <h4 className="section-title">Cryptocurrency Prices</h4>
+        <InputGroup className="marketTable-search">
+          <Form.Control type="text" placeholder="Search a coin" />
+        </InputGroup>
+      </div>
+      <Table hover responsive className=" marketTable">
         <thead>
           <tr>
             <th>#</th>
-            <th>#</th>
             <th>Coin</th>
-            <th>Price</th>
-            <th>24h</th>
-            <th>7d</th>
-            <th>24h Vol</th>
-            <th>Market Cap</th>
+            <th className="text-end">Price</th>
+            <th className="text-end">24h</th>
+            <th className="text-end">24h Vol</th>
+            <th className="text-end">Market Cap</th>
           </tr>
         </thead>
         <tbody>

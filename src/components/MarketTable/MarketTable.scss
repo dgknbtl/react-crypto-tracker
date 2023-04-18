@@ -1,0 +1,20 @@
+.marketTable {
+  --bs-table-hover-bg: var(--c-light);
+  font-size: 14px;
+  border: 1px solid var(--c-light);
+  border-radius: var(--radius);
+  td,
+  th {
+    padding: 10px 14px;
+    border-color: var(--c-light);
+  }
+  &--up {
+    color: green;
+  }
+  &--down {
+    color: red;
+  }
+  &-search {
+    max-width: 250px;
+  }
+}
