@@ -54,3 +54,9 @@ export interface IMarketCoin {
 export interface IMarketRowProps {
   item: IMarketCoin;
 }
+
+export interface IDetailModalProps {
+  show: boolean;
+  onHide: () => void;
+  children: React.ReactNode;
+}
