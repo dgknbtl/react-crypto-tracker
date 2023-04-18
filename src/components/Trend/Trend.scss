@@ -1,5 +1,11 @@
 .trend {
-  background-color: red;
   &-card {
+    border-color: var(--c-light);
+    box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.05);
+
+    &:hover {
+      box-shadow: 0 16px 40px rgba($color: #000000, $alpha: 0.1);
+      cursor: pointer;
+    }
   }
 }

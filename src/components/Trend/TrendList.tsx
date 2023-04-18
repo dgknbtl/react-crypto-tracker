@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner, Alert } from "react-bootstrap";
 import TrendCard from "@/components/Trend/TrendCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTrendData } from "@/features/Trend/TrendSlice";
@@ -23,26 +23,42 @@ const TrendList: React.FC = () => {
     dispatch(fetchTrendData());
   }, [dispatch]);
 
-  if (isLoading) {
-    return <div>Yükleniyor</div>;
-  }
-
-  if (error) {
-    return <div>An Error Occured</div>;
-  }
-
   if (!coins) {
     return <div>It is not loaded.</div>;
   }
 
   return (
-    <Row>
-      {coins.slice(0, 6).map((coin: { item: ICoin }, i: number) => (
-        <Col lg={4} key={i} className="mt-3">
-          <TrendCard item={coin.item} />
-        </Col>
-      ))}
-    </Row>
+    <div className="section-gap">
+      <div className="section-head">
+        <div className="section-title">Trending Coins (24h)</div>
+      </div>
+
+      {isLoading && (
+        <div className="my-4">
+          <Spinner animation="border" />
+        </div>
+      )}
+
+      {error && (
+        <div className="my-4">
+          <Alert variant="warning">
+            An error occured to fetch trending coins
+          </Alert>
+        </div>
+      )}
+
+      {coins && coins.length ? (
+        <Row>
+          {coins.slice(0, 6).map((coin: { item: ICoin }, i: number) => (
+            <Col lg={4} sm={6} key={i} className="mb-3">
+              <TrendCard item={coin.item} />
+            </Col>
+          ))}
+        </Row>
+      ) : (
+        <Alert variant="warning">It was not found</Alert>
+      )}
+    </div>
   );
 };
 

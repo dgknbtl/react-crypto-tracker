@@ -1,5 +1,6 @@
 :root {
   --c-light: #f1f1f1;
+  --c-gray: #999;
   --radius: 6px;
 }
 
@@ -24,4 +25,8 @@
 .form-control {
   font-size: 14px !important;
   border-color: var(--c-light) !important;
+}
+
+.text-gray {
+  color: var(--c-gray);
 }
