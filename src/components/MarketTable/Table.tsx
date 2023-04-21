@@ -66,7 +66,7 @@ const MarketTable: React.FC = () => {
       )}
 
       {filteredMarket && filteredMarket.length ? (
-        <Table hover responsive className=" marketTable">
+        <Table hover responsive className="customTable">
           <thead>
             <tr>
               <th>#</th>

@@ -1,25 +1,5 @@
 .marketTable {
-  --bs-table-hover-bg: #fff;
-  font-size: 14px;
-  border: 1px solid var(--c-light);
-  border-radius: var(--radius);
-  td,
-  th {
-    padding: 10px 14px;
-    border-color: var(--c-light);
-  }
-
-  td {
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
-
   &-search {
     max-width: 250px;
-  }
-
-  > tbody > tr:hover {
-    box-shadow: 0 6px 20px rgba($color: #000000, $alpha: 0.1);
-    cursor: pointer;
   }
 }

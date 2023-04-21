@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 
-const useCurrencyFormat = (amount: number = 0, currency: string = "USD") => {
-  const [format, setFormat] = useState<(amount: number) => string>(
+const useNumberFormat = () => {
+  const [formatter, setFormatter] = useState<(value: number) => string>(
     () => () => ""
   );
 
   useEffect(() => {
     const formatter = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency,
+      style: "decimal",
       minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
     });
 
-    setFormat(() => formatter.format);
-  }, [currency, amount]);
-  return format;
+    setFormatter(() => formatter.format);
+  }, []);
+
+  return formatter;
 };
 
-export default useCurrencyFormat;
+export default useNumberFormat;

@@ -1,6 +1,7 @@
 .crypto-detail {
   .item {
     &-head {
+      margin-top: 10px;
     }
     &-name {
       font-size: 18px;
@@ -19,6 +20,56 @@
     &-change {
       font-size: 16px;
       font-weight: 400;
+    }
+    &-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 200px;
+      .btn {
+        margin: 2px;
+      }
+    }
+    &-text {
+      height: 140px;
+      overflow: auto;
+      margin-top: 10px;
+      color: var(--c-gray);
+      line-height: 1.4;
+    }
+    &-progress {
+      height: 10px;
+    }
+    &-range {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .tableList {
+    display: flex;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    margin-top: 10px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    &-title {
+      color: var(--c-gray);
+    }
+    &-value {
+      font-weight: 500;
+      text-align: right;
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--c-light);
+      padding: 8px 0;
     }
   }
 }

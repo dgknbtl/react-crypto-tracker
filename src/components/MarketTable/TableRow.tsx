@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IMarketRowProps } from "@/types";
-import useCurrencyFormat from "@/hooks/useNumberFormat";
+import useCurrencyFormat from "@/hooks/useCurrencyFormat";
 import DetailModal from "@/components/Modal/DetailModal";
 
 const MarketTableRow: React.FC<IMarketRowProps> = ({ item }) => {
@@ -26,7 +26,9 @@ const MarketTableRow: React.FC<IMarketRowProps> = ({ item }) => {
             alt={item.symbol}
           />
           <span className="fw-semibold">{item.name}</span>
-          <small className="text-uppercase text-gray">({item.symbol})</small>
+          <small className="text-uppercase text-gray ms-2">
+            ({item.symbol})
+          </small>
         </td>
         <td className="text-end">{formatCurrency(item.current_price)}</td>
         <td className="text-end">
