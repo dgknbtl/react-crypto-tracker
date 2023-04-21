@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
-const useCurrencyFormat = (amount: number, currency: string = "USD") => {
-  const [formattedAmount, setFormattedAmount] = useState("");
+const useCurrencyFormat = (amount: number = 0, currency: string = "USD") => {
+  const [format, setFormat] = useState<(amount: number) => string>(
+    () => () => ""
+  );
 
   useEffect(() => {
     const formatter = new Intl.NumberFormat("en-US", {
@@ -10,10 +12,9 @@ const useCurrencyFormat = (amount: number, currency: string = "USD") => {
       minimumFractionDigits: 0,
     });
 
-    setFormattedAmount(formatter.format(amount));
-  }, [amount]);
-
-  return formattedAmount;
+    setFormat(() => formatter.format);
+  }, [currency, amount]);
+  return format;
 };
 
 export default useCurrencyFormat;

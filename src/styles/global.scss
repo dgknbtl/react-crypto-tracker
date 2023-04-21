@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700;800&display=swap");
+
 :root {
   --c-light: #f1f1f1;
   --c-gray: #999;
   --radius: 6px;
+  --font-family: "Dosis", "Arial", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  line-height: 1.5;
+  font-family: "Dosis";
 }
 
 .section {
@@ -29,4 +41,22 @@
 
 .text-gray {
   color: var(--c-gray);
+}
+
+.modal-backdrop {
+  opacity: 1 !important;
+  background-color: rgba($color: #000000, $alpha: 0.4) !important;
+  backdrop-filter: blur(3px);
+  &.show {
+    opacity: 1 !important;
+  }
+}
+
+.color {
+  &--up {
+    color: green;
+  }
+  &--down {
+    color: red;
+  }
 }
