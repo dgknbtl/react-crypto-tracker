@@ -91,6 +91,7 @@ const DetailModal: React.FC<IDetailModalProps> = (props) => {
                     variant="light"
                     size="sm"
                     href={`https://twitter.com/${crypto.links.twitter_screen_name}`}
+                    target="_blank"
                   >
                     <Twitter className="mx-1" /> Twitter
                   </Button>
@@ -102,6 +103,7 @@ const DetailModal: React.FC<IDetailModalProps> = (props) => {
                     variant="light"
                     size="sm"
                     href={`https://facebook.com/${crypto.links.facebook_username}`}
+                    target="_blank"
                   >
                     <Facebook className="mx-1" /> Facebook
                   </Button>
@@ -112,6 +114,7 @@ const DetailModal: React.FC<IDetailModalProps> = (props) => {
                     variant="light"
                     size="sm"
                     href={crypto.links.subreddit_url}
+                    target="_blank"
                   >
                     <Reddit className="mx-1" /> Reddit
                   </Button>
@@ -122,6 +125,7 @@ const DetailModal: React.FC<IDetailModalProps> = (props) => {
                     variant="light"
                     size="sm"
                     href={crypto.links.repos_url.github[0]}
+                    target="_blank"
                   >
                     <Github className="mx-1" /> Github
                   </Button>
@@ -131,7 +135,8 @@ const DetailModal: React.FC<IDetailModalProps> = (props) => {
                   <Button
                     variant="light"
                     size="sm"
-                    href={`https://${crypto.links.homepage[0]}`}
+                    href={crypto.links.homepage[0]}
+                    target="_blank"
                   >
                     Official Website
                   </Button>
