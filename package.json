@@ -2,6 +2,9 @@
   "name": "crypto-currency-tracker",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dogukanbatal.github.io/react-crypto-tracker",
+  "description": "A react app that helps you tracking cryptocurrencies.",
+  "author": "Doğukan Batal <hi@dogu.dev>",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
@@ -24,7 +27,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "react-app-rewired": "^2.2.1"
   }
 }
