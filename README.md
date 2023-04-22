@@ -2,7 +2,7 @@
 
 # React Crypto Tracker
 
-A simple React application to track cryptocurrency prices.[Demo](https://dogukanbatal.github.io/react-crypto-tracker/).
+A simple React application to track cryptocurrency prices using the [CoinGecko](https://www.coingecko.com/en/api) API.[Demo](https://dogukanbatal.github.io/react-crypto-tracker/).
 
 ## Clone
 
